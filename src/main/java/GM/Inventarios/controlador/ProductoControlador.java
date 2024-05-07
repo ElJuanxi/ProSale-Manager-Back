@@ -1,7 +1,7 @@
 package GM.Inventarios.controlador;
 import GM.Inventarios.modelo.Producto;
 import GM.Inventarios.servicio.ProductoServicio;
-import org.slf4j.ILoggerFactory;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,6 @@ public class ProductoControlador {
         logger.info("Producto a agregar: " + producto);
         System.out.println("aqui se agrego algo");
         return this.productoServicio.guardarProducto(producto);
-
     }
 
 
