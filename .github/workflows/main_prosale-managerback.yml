@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - prosale-managerBack
+name: Build and deploy Groovy app to Azure Web App - prosale-managerBack
 
 on:
   push:
@@ -16,19 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Java version
+      - name: Set up Groovy environment
         uses: actions/setup-java@v1
         with:
           java-version: '11'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build Groovy application
+        run: ./gradlew build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: groovy-app
+          path: '${{ github.workspace }}/build/libs/*.jar' 
 
   deploy:
     runs-on: ubuntu-latest
@@ -37,13 +37,13 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # Esto es requerido para solicitar el JWT
   
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: java-app
+          name: groovy-app
       
       - name: Login to Azure
         uses: azure/login@v1
@@ -59,4 +59,3 @@ jobs:
           app-name: 'prosale-managerBack'
           slot-name: 'Production'
           package: '*.jar'
-          
