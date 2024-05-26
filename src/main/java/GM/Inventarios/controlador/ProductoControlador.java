@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 //http://localhost:8080/inventario-app
 @RequestMapping("inventario-app")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"})
 public class ProductoControlador {
     private static final Logger logger = LoggerFactory.getLogger(ProductoControlador.class);
 
@@ -49,6 +49,8 @@ public class ProductoControlador {
         producto.setNombreProducto(productoRecibido.getNombreProducto());
         producto.setDescripcion(productoRecibido.getDescripcion());
         producto.setPrecio(productoRecibido.getPrecio());
+        producto.setProveedor(productoRecibido.getProveedor());
+        producto.setPrecioprov(productoRecibido.getPrecioprov());
         producto.setStock(productoRecibido.getStock());
         this.productoServicio.guardarProducto(producto);
 

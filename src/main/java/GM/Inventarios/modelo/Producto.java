@@ -1,9 +1,6 @@
 package GM.Inventarios.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -18,7 +15,28 @@ public class Producto {
     String nombreProducto;
     String descripcion;
     Double precio;
+    Double precioprov;
     Integer stock;
+
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor")
+    Proveedor proveedor;
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Double getPrecioprov() {
+        return precioprov;
+    }
+
+    public void setPrecioprov(Double precioprov) {
+        this.precioprov = precioprov;
+    }
 
     public Integer getIdProducto() {
         return idProducto;
