@@ -21,14 +21,17 @@ jobs:
         with:
           java-version: 'java21'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Clean with Gradle
+        run: ./gradlew clean
+
+      - name: Build with Gradle
+        run: ./gradlew build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/build/libs/Inventarios-0.0.1-SNAPSHOT.jar'
 
   deploy:
     runs-on: ubuntu-latest
