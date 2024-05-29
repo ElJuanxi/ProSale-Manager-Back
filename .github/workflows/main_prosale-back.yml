@@ -19,19 +19,16 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: '21'
+          java-version: 'java21'
 
-      - name: Clean with Gradle
-        run: ./gradlew clean
-
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: Build with Maven
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/build/libs/Inventarios-0.0.1-SNAPSHOT.jar'
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D915A70C213D455B9250175D0C0A1D5A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E23737157CF848EBBD0DBBE7855CB6A2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_D8C6FF82C8724986BBD022E77DB076DD }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D9916C630EF24E339B258A2EF6D10A34 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DD54EFA2367149B98F75C8AF49FD846F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B3199FC14A9D495AA7CC5553F56FB378 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
