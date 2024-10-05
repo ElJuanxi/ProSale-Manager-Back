@@ -29,7 +29,8 @@ public class ProductoServicio implements IProductoServicio{
         return this.productoRepositorio.save(producto);
     }
 
-    @Override public void eliminarProductoPorId(Integer idProducto) {
+    @Override
+    public void eliminarProductoPorId(Integer idProducto) {
         this.productoRepositorio.deleteById(idProducto);
     }
 }
