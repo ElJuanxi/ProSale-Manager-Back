@@ -8,8 +8,6 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Data
@@ -26,14 +24,13 @@ public class Factura {
 
     BigDecimal total;
 
+    Integer detalles;
+
 
     @ManyToOne
     @JoinColumn(name = "id_vendedor")
     Usuario usuario;
 
-    @OneToMany
-    @JoinColumn(name = "detalles")
-    List<DetalleFactura> detalleFactura = new ArrayList<>();
 
     public Integer getIdFactura() {
         return idFactura;
@@ -67,11 +64,11 @@ public class Factura {
         this.usuario = usuario;
     }
 
-    public DetalleFactura getDetalleFactura() {
-        return (DetalleFactura) detalleFactura;
+    public Integer getDetalles() {
+        return detalles;
     }
 
-    public void setDetalleFactura(DetalleFactura detalleFactura) {
-        this.detalleFactura = (List<DetalleFactura>) detalleFactura;
+    public void setDetalles(Integer detalles) {
+        this.detalles = detalles;
     }
 }
