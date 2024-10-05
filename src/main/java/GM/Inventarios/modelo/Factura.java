@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,7 +25,8 @@ public class Factura {
 
     BigDecimal total;
 
-    Integer detalles;
+    @OneToMany(mappedBy = "factura")
+    private List<DetalleFactura> detalles;
 
 
     @ManyToOne
@@ -64,11 +66,11 @@ public class Factura {
         this.usuario = usuario;
     }
 
-    public Integer getDetalles() {
+    public List<DetalleFactura> getDetalles() {
         return detalles;
     }
 
-    public void setDetalles(Integer detalles) {
+    public void setDetalles(List<DetalleFactura> detalles) {
         this.detalles = detalles;
     }
 }
