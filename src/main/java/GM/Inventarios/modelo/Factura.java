@@ -29,6 +29,10 @@ public class Factura {
     @JoinColumn(name = "id_vendedor")
     Usuario usuario;
 
+    @OneToMany
+    @JoinColumn(name = "detalles")
+    DetalleFactura detalleFactura;
+
     public Integer getIdFactura() {
         return idFactura;
     }
@@ -59,5 +63,13 @@ public class Factura {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public DetalleFactura getDetalleFactura() {
+        return detalleFactura;
+    }
+
+    public void setDetalleFactura(DetalleFactura detalleFactura) {
+        this.detalleFactura = detalleFactura;
     }
 }

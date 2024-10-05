@@ -53,6 +53,7 @@ public class FacturaControlador {
         factura.setFecha(facturaRecibida.getFecha());
         factura.setTotal(facturaRecibida.getTotal());
         factura.setUsuario(facturaRecibida.getUsuario());
+        factura.setDetalleFactura(facturaRecibida.getDetalleFactura());
 
         return ResponseEntity.ok(factura);
     }
