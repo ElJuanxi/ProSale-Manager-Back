@@ -3,9 +3,12 @@ package GM.Inventarios.servicio;
 import GM.Inventarios.modelo.DetalleFactura;
 import GM.Inventarios.repositorio.DetalleFacturaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class DetalleServicio implements IDetalleFactura{
 
     @Autowired
