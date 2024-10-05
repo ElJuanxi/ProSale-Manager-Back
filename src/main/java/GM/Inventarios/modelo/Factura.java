@@ -32,7 +32,7 @@ public class Factura {
     Usuario usuario;
 
     @OneToMany
-    @JoinColumn(name = "factura")
+    @JoinColumn(name = "detalles")
     List<DetalleFactura> detalleFactura = new ArrayList<>();
 
     public Integer getIdFactura() {
