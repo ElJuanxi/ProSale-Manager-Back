@@ -26,7 +26,7 @@ public class Factura {
     BigDecimal total;
 
     @OneToMany(mappedBy = "factura")
-    private List<DetalleFactura> detalles;
+    List<DetalleFactura> detalles;
 
 
     @ManyToOne

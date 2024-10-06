@@ -3,7 +3,6 @@ package GM.Inventarios.controlador;
 
 import GM.Inventarios.modelo.Factura;
 import GM.Inventarios.servicio.FacturaServicio;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +36,13 @@ public class FacturaControlador {
     }
 
 
+    @GetMapping("/facturas/{id}/detalles")
+    public ResponseEntity<Factura> obtenerFacturaConDetalles(@PathVariable Integer id) {
+        Factura factura = this.facturaServicio.obtenerFacturaConDetalles(id);
+        return ResponseEntity.ok(factura);
+    }
+
+
     @PostMapping("/facturas")
     public Factura agregarFactura(@RequestBody Factura factura) {
         logger.info("Factura a agregar: "+ factura);
@@ -53,7 +59,7 @@ public class FacturaControlador {
         factura.setFecha(facturaRecibida.getFecha());
         factura.setTotal(facturaRecibida.getTotal());
         factura.setUsuario(facturaRecibida.getUsuario());
-        factura.setDetalles(facturaRecibida.getDetalles());
+
 
         return ResponseEntity.ok(factura);
     }
