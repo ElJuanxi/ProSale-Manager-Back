@@ -36,7 +36,7 @@ public class FacturaControlador {
     }
 
 
-    @GetMapping("/facturas/{id}/detalles")
+    @GetMapping("/facturas/{id}/detalle")
     public ResponseEntity<Factura> obtenerFacturaConDetalles(@PathVariable Integer id) {
         Factura factura = this.facturaServicio.obtenerFacturaConDetalles(id);
         return ResponseEntity.ok(factura);
