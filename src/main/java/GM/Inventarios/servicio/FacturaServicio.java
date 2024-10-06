@@ -34,8 +34,5 @@ public class FacturaServicio implements IFactura{
         facturaRepositorio.deleteById(idFactura);
     }
 
-    public Factura obtenerFacturaConDetalles(Integer idFactura){
-        return facturaRepositorio.findFacturaConDetalle(idFactura);
-    }
 
 }

@@ -1,5 +1,6 @@
 package GM.Inventarios.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,14 +21,16 @@ import java.util.List;
 public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Temporal(TemporalType.DATE)
     Integer idFactura;
+
+    @Temporal(TemporalType.DATE)
     Date fecha;
 
     BigDecimal total;
 
     @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<DetalleFactura> detalles;
+    @JsonManagedReference
+    List<DetalleFactura> detalles = new ArrayList<>();
 
 
     @ManyToOne

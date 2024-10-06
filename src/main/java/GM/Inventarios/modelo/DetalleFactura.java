@@ -1,5 +1,6 @@
 package GM.Inventarios.modelo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class DetalleFactura {
 
     @ManyToOne
     @JoinColumn(name = "id_factura")
+    @JsonBackReference
     Factura factura;
 
     @ManyToOne

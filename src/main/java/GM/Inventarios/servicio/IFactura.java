@@ -13,5 +13,4 @@ public interface IFactura {
 
     public void eliminarFacturaPorId(Integer idFactura);
 
-    public Factura obtenerFacturaConDetalles(Integer idFactura);
 }
