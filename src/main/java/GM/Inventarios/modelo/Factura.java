@@ -25,7 +25,7 @@ public class Factura {
 
     BigDecimal total;
 
-    @OneToMany(mappedBy = "factura")
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
     List<DetalleFactura> detalles;
 
 

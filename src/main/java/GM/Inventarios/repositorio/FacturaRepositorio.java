@@ -8,4 +8,5 @@ import org.springframework.data.repository.query.Param;
 public interface FacturaRepositorio extends JpaRepository<Factura, Integer> {
     @Query("SELECT f FROM Factura f JOIN FETCH f.detalles WHERE f.idFactura = :idFactura")
     Factura findFacturaConDetalle(@Param("idFactura")Integer idFactura);
+
 }

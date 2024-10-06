@@ -31,7 +31,7 @@ public class FacturaControlador {
     public List<Factura> obtenerFacturas() {
         List<Factura> facturas = this.facturaServicio.listarFacturas();
         logger.info("Facturas Realizadas: ");
-        facturas.forEach((factura -> logger.info(facturas.toString())));
+        facturas.forEach((factura -> logger.info(factura.toString())));
         return facturas;
     }
 
