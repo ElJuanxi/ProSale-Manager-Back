@@ -1,6 +1,6 @@
 package GM.Inventarios.modelo;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,6 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,10 +26,6 @@ public class Factura {
     Date fecha;
 
     BigDecimal total;
-
-    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    List<DetalleFactura> detalles = new ArrayList<>();
 
 
     @ManyToOne

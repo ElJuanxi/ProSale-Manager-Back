@@ -27,7 +27,6 @@ public class FacturaControlador {
 
     //http://localhost:8080/inventario-app/facturas
     @GetMapping("/facturas")
-
     public List<Factura> obtenerFacturas() {
         List<Factura> facturas = this.facturaServicio.listarFacturas();
         logger.info("Facturas Realizadas: ");
