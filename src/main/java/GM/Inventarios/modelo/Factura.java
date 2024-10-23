@@ -1,6 +1,5 @@
 package GM.Inventarios.modelo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +8,6 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -65,11 +63,4 @@ public class Factura {
         this.usuario = usuario;
     }
 
-    public List<DetalleFactura> getDetalles() {
-        return detalles;
-    }
-
-    public void setDetalles(List<DetalleFactura> detalles) {
-        this.detalles = detalles;
-    }
 }
