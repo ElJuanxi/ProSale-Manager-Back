@@ -15,7 +15,7 @@ import java.util.Map;
 @RestController
 //http://localhost:8080/inventario-app
 @RequestMapping("inventario-app")
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100", "https://prosale-manager.netlify.app", "https://6064-2800-484-329a-7c00-7c85-d4cd-778d-edba.ngrok-free.app"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100", "https://prosale-manager.netlify.app", "https://4369-2800-484-329a-7c00-d164-cccc-da74-7f45.ngrok-free.app"})
 public class UsuarioControlador {
 
     private static final Logger logger = LoggerFactory.getLogger(UsuarioControlador.class);
